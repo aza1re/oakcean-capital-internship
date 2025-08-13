@@ -1,0 +1,55 @@
+# Oakcean Capital Internship
+
+Welcome to my internship project at Oakcean Capital. This repository documents my work and solutions for the internship, focusing on quantitative trading, data engineering, and algorithmic strategy development.
+
+## Overview
+
+During my internship, I worked on building a data pipeline and developing trading strategies for the China A-share market, specifically using data from the Shanghai Stock Exchange (SSE). The work is divided into two main tasks:
+
+---
+
+## Task 1: Pairs Trading & Statistical Arbitrage – Medium Frequency Trading
+
+**Objective:**  
+Explore the possibility of utilizing statistical arbitrage strategies in the China stock market.
+
+**Key Steps:**
+- **Data Collection:**  
+  - Downloaded historical daily data for selected SSE stocks using Yahoo Finance.
+  - Stored the data in a MongoDB database for efficient querying and analysis.
+- **API Development:**  
+  - Built a REST API using FastAPI to expose time series data for any ticker and date range.
+- **Analysis:**  
+  - Implemented correlation analysis and clustering to group stocks with similar price movements.
+  - Developed a mean-reversion strategy and performed backtesting to evaluate performance.
+
+**Relevant Files:**
+- [`tasks/task1/main.py`](tasks/task1/main.py): Main pipeline, data ingestion, API, and strategy execution.
+- [`tasks/task1/correlation.py`](tasks/task1/correlation.py): Stock clustering and correlation analysis.
+- [`tasks/task1/mrs.py`](tasks/task1/mrs.py): Mean reversion strategy implementation.
+
+---
+
+## Task 2: Exchange and Algorithmic Trading – Market Understanding
+
+**Objective:**  
+Extend the data system and conduct further analysis to explore statistical arbitrage opportunities in the China market.
+
+**Key Steps:**
+- **System Extension:**  
+  - Enhanced the data pipeline for scalability and future tasks.
+- **Advanced Analysis:**  
+  - Built correlation metrics/models between stocks.
+  - Applied clustering models to group stocks by correlation.
+  - Devised and backtested mean-reversion strategies based on clusters.
+
+**Relevant Files:**
+- [`tasks/task2/task2findings.html`](tasks/task2/task2findings.html): Documentation and findings for Task 2.
+
+---
+
+## How to Run
+
+1. Install dependencies:
+   ```sh
+   pip install -r requirements.txt
