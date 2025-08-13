@@ -28,28 +28,4 @@ Explore the possibility of utilizing statistical arbitrage strategies in the Chi
 - [`tasks/task1/correlation.py`](tasks/task1/correlation.py): Stock clustering and correlation analysis.
 - [`tasks/task1/mrs.py`](tasks/task1/mrs.py): Mean reversion strategy implementation.
 
----
-
-## Task 2: Exchange and Algorithmic Trading – Market Understanding
-
-**Objective:**  
-Extend the data system and conduct further analysis to explore statistical arbitrage opportunities in the China market.
-
-**Key Steps:**
-- **System Extension:**  
-  - Enhanced the data pipeline for scalability and future tasks.
-- **Advanced Analysis:**  
-  - Built correlation metrics/models between stocks.
-  - Applied clustering models to group stocks by correlation.
-  - Devised and backtested mean-reversion strategies based on clusters.
-
-**Relevant Files:**
-- [`tasks/task2/task2findings.html`](tasks/task2/task2findings.html): Documentation and findings for Task 2.
-
----
-
-## How to Run
-
-1. Install dependencies:
-   ```sh
-   pip install -r requirements.txt
+I plan to further backtest my strategies and deploy it on QuantConnect, stay tuned for my Quant journey

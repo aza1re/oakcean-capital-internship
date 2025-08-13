@@ -8,22 +8,27 @@ from tqdm import tqdm
 
 from correlation import StockClusterer
 from mrs import MeanReversionStrategy
+from utils.MongoDBDataAPI import MongoDBDataAPI  # <-- Import the new class
 
-app = FastAPI()
-
+# --- MongoDB and FastAPI Setup using the new class ---
 uri = "mongodb+srv://dbUser:Kim06082006@cluster.9x7imc6.mongodb.net/?retryWrites=true&w=majority&appName=Cluster"
-client = MongoClient(uri, server_api=ServerApi('1'))
+db_name = "sse"
+collection_name = "equities"
 
+mongo_api = MongoDBDataAPI(uri, db_name, collection_name)
+app = mongo_api.get_app()
+
+# --- Data Download and Storage (unchanged) ---
+client = MongoClient(uri, server_api=ServerApi('1'))
 try:
     client.admin.command('ping')
     print("Pinged your deployment. You successfully connected to MongoDB!")
 except Exception as e:
     print(e)
 
-db = client["sse"]
-collection = db["equities"]
+db = client[db_name]
+collection = db[collection_name]
 
-# Download and store data for multiple tickers
 tickers = ["600519.SS", "000001.SS", "601398.SS"]
 for ticker in tqdm(tickers, desc="Tickers"):
     df = yf.download(ticker, start="2022-01-01", end="2023-01-01")
@@ -47,23 +52,6 @@ for ticker in tqdm(tickers, desc="Tickers"):
             {"$set": doc},
             upsert=True
         )
-
-@app.get("/timeseries")
-def get_timeseries(
-    ticker: str,
-    start: str,
-    end: str,
-    fields: str = "open,close,high,low,volume"
-):
-    start_dt = datetime.strptime(start, "%Y-%m-%d")
-    end_dt = datetime.strptime(end, "%Y-%m-%d")
-    projection = {f: 1 for f in fields.split(",")}
-    projection["date"] = 1
-    data = list(collection.find(
-        {"ticker": ticker, "date": {"$gte": start_dt, "$lte": end_dt}},
-        projection
-    ))
-    return data
 
 # --- Clustering and Mean-Reversion Backtest Example ---
 if __name__ == "__main__":
