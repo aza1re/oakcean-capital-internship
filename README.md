@@ -1,6 +1,6 @@
 # Oakcean Capital Internship
 
-Welcome to my internship project at Oakcean Capital. This repository documents my work and solutions for the internship, focusing on quantitative trading, data engineering, and algorithmic strategy development.
+Welcome to my showcase of my internship at Oakcean Capital. This repository documents my work and solutions for the internship, focusing on quantitative trading, data engineering, and algorithmic strategy development.
 
 ## Overview
 
