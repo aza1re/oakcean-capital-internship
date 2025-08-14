@@ -3,7 +3,7 @@ from pymongo import MongoClient
 from datetime import datetime
 from typing import List, Optional
 
-class MongoDBDataAPI:
+class FASTAPI:
     def __init__(self, uri: str, db_name: str, collection_name: str):
         self.client = MongoClient(uri)
         self.db = self.client[db_name]

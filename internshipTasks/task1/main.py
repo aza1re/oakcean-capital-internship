@@ -8,14 +8,14 @@ from tqdm import tqdm
 
 from correlation import StockClusterer
 from mrs import MeanReversionStrategy
-from utils.MongoDBDataAPI import MongoDBDataAPI  # <-- Import the new class
+from utils.FASTAPI import FASTAPI  # <-- Import the new class
 
 # --- MongoDB and FastAPI Setup using the new class ---
 uri = "mongodb+srv://dbUser:Kim06082006@cluster.9x7imc6.mongodb.net/?retryWrites=true&w=majority&appName=Cluster"
 db_name = "sse"
 collection_name = "equities"
 
-mongo_api = MongoDBDataAPI(uri, db_name, collection_name)
+mongo_api = FASTAPI(uri, db_name, collection_name)
 app = mongo_api.get_app()
 
 # --- Data Download and Storage (unchanged) ---

@@ -28,4 +28,4 @@ Explore the possibility of utilizing statistical arbitrage strategies in the Chi
 - [`tasks/task1/correlation.py`](tasks/task1/correlation.py): Stock clustering and correlation analysis.
 - [`tasks/task1/mrs.py`](tasks/task1/mrs.py): Mean reversion strategy implementation.
 
-I plan to further backtest my strategies and deploy it on QuantConnect, stay tuned for my Quant journey
+I plan to further backtest my strategies and deploy it on QuantConnect, stay tuned for my Quant journey!
